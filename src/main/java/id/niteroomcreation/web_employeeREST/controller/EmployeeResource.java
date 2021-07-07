@@ -37,12 +37,31 @@ public class EmployeeResource {
         return new ResponseEntity<>(employee, HttpStatus.OK);
     }
 
+    /**
+     * {
+     * "name": "tian adi wijaya",
+     * "email": "septianadiwijaya92@gmail.com",
+     * "jobTitle": "backend engineer",
+     * "phone": "085233085140",
+     * "imageUrl": "https://4.bp.blogspot.com/-lIhJZ1G2o8w/UiWApGiQygI/AAAAAAAAAc8/uKtJG-UWoq4/s1600/imled-1.jpg"
+     * }
+     */
     @PostMapping("/add")
     public ResponseEntity<Employee> addEmployee(@RequestBody Employee empl) {
         Employee employee = employeeService.add(empl);
         return new ResponseEntity<>(employee, HttpStatus.CREATED);
     }
 
+    /**
+     * {
+     * "id": 2,
+     * "name": "Wirya adi wijaya",
+     * "email": "developadi@gmail.com",
+     * "jobTitle": "Senior Backend Architect engineer",
+     * "phone": "085233085140",
+     * "imageUrl": "https://4.bp.blogspot.com/-lIhJZ1G2o8w/UiWApGiQygI/AAAAAAAAAc8/uKtJG-UWoq4/s1600/imled-1.jpg"
+     * }
+     */
     @PutMapping("/update")
     public ResponseEntity<Employee> updateEmployee(@RequestBody Employee empl) {
         Employee employee = employeeService.update(empl);
