@@ -1,6 +1,5 @@
 package id.niteroomcreation.web_employeeREST.service;
 
-import id.niteroomcreation.web_employeeREST.exception.UserNotFound;
 import id.niteroomcreation.web_employeeREST.model.Employee;
 import id.niteroomcreation.web_employeeREST.repo.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;

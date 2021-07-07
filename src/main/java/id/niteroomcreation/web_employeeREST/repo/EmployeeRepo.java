@@ -3,6 +3,7 @@ package id.niteroomcreation.web_employeeREST.repo;
 import id.niteroomcreation.web_employeeREST.model.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import javax.swing.text.html.Option;
 import java.util.Optional;
 
 /**
@@ -11,4 +12,6 @@ import java.util.Optional;
  */
 public interface EmployeeRepo extends JpaRepository<Employee, Long> {
     Optional<Employee> findEmployeeById(Long id);
+
+    Optional<Employee> deleteEmployeeById(Long id);
 }
