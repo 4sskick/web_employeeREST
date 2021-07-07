@@ -6,6 +6,7 @@ import id.niteroomcreation.web_employeeREST.repo.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.UUID;
 import java.util.function.Supplier;
@@ -15,6 +16,7 @@ import java.util.function.Supplier;
  * please make sure to use credit when you're using people's code
  */
 @Service
+@Transactional
 public class EmployeeService {
     private final EmployeeRepo employeeRepo;
 
@@ -41,10 +43,10 @@ public class EmployeeService {
     }
 
     public Employee findById(Long id) {
-        return employeeRepo.findEmployeeById(id).orElseThrow(new Supplier() {
+        return employeeRepo.findEmployeeById(id).orElseGet(new Supplier<Employee>() {
             @Override
-            public Object get() {
-                return new UserNotFound(String.format("user with id %s not found", id));
+            public Employee get() {
+                return null;
             }
         });
     }

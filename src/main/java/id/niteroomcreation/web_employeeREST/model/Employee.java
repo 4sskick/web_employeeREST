@@ -17,6 +17,10 @@ public class Employee implements Serializable {
     @Column(nullable = false, updatable = false)
     private String employeeCode;
 
+    //need to provide this one as default
+    public Employee() {
+    }
+
     public Employee(Long id, String name, String email, String jobTitle, String phone, String imageUrl, String employeeCode) {
         this.id = id;
         this.name = name;
@@ -25,6 +29,14 @@ public class Employee implements Serializable {
         this.phone = phone;
         this.imageUrl = imageUrl;
         this.employeeCode = employeeCode;
+    }
+
+    public Employee(String name, String email, String jobTitle, String phone, String imageUrl) {
+        this.name = name;
+        this.email = email;
+        this.jobTitle = jobTitle;
+        this.phone = phone;
+        this.imageUrl = imageUrl;
     }
 
     public Long getId() {

@@ -30,6 +30,10 @@ public class EmployeeResource {
     @GetMapping("/find/{id}")
     public ResponseEntity<Employee> getAllEmployeeById(@PathVariable("id") Long employeeId) {
         Employee employee = employeeService.findById(employeeId);
+
+        if (employee == null)
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
         return new ResponseEntity<>(employee, HttpStatus.OK);
     }
 
